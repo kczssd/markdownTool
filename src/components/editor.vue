@@ -1,7 +1,11 @@
 <template>
   <main id="editor">
-    <div contenteditable="true" class="main_left" @input="output($event)"></div>
-    <div contenteditable="false" ref="result" class="main_right"></div>
+    <section class="editor_content" style="background-color:#F8F9FA">
+      <div contenteditable="true" class="main_left" @input="output($event)"></div>
+    </section>
+    <section class="editor_content">
+      <div contenteditable="false" ref="result" class="main_right"></div>
+    </section>
   </main>
 </template>
 
@@ -37,15 +41,28 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 #editor{
-  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+  width: 100%;
   display: flex;
 }
-.main_left,.main_right{
+.editor_content{
+  height: 100%;
   flex: 1;
-  height: 90vh;
-  border: 1px solid gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.main_left{border-right:0.5px solid #FAFBFC}
+.main_left,.main_right{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  outline: none;
   font-size: 30px;
+  padding: 10%;
 }
 </style>

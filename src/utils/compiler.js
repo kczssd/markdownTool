@@ -1,5 +1,5 @@
 //对输入的markdown文本数组进行每一行的预处理
-// let test = ["# nihao", "* 我是郑志宇", "你好呀"]
+// let test = ["```js","niaho","```","## nihao"]
 function Pretreatment(preInput) {
     return preInput.map((row) => (row += "\n"));
 }
@@ -36,16 +36,16 @@ function tokenizer(input) {
         let CODE = /```\s|```\w{1,}\s/;
         if (CODE.test(rowInput)) {
             let lang = rowInput.match(CODE);
-            let value = "";
+            let value = '';
             rowInput = input[++row];
-            while (!CODE.test(rowInput)) {
-                value += rowInput;
+            while(!CODE.test(rowInput)&&rowInput){
+                value+=rowInput;
                 rowInput = input[++row];
             }
             tokens.push({
                 type: "CODE",
                 lang: lang[0].slice(3) === "\n" ? "test\n" : lang[0].slice(3),
-                value,
+                value
             });
             row++;
             continue;
