@@ -219,4 +219,9 @@ table td:first-child, table th:first-child {
     border-left: none;
 }
 
-
+.linefeed::after{
+    content: '\200B';
+}
+/* .listitem>p{
+    display: inline;
+} */

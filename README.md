@@ -1,24 +1,17 @@
-# test_demo
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Markdown to Html
+> 需要完成一个在线markdown to html的在线编写工具，完成实时的转换和预览。
+> 需要符合GitHub的Markdown标准，并提供辅助编写工具
+### 已完成目标
+1. 标题、加粗、斜体、代码块、分割线、引用及相应辅助功能
+2. 基础预览
+### 待完成目标
+1. 代码块的meta属性
+2. 链接和图片部分
+3. 表格等规范
+3. 列表的嵌套和排序
+4. 块级元素嵌套
+5. 部署到自己服务器
+- - - - -
+### 优化方向
+1. 编译器部分ast结构再细化规范，代码结构调整。
+2. 增量式的编译新输入内容

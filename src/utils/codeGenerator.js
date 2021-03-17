@@ -11,8 +11,10 @@ function codeGenerator(node) {
             return `<p>${node.children.map(codeGenerator).join("")}</p>`
         case "text":
             return `<span>${node.value}</span>`
-        case "nextroe":
+        case "nextrow":
             return;
+        case "linefeed":
+            return `<p class="linefeed"></p>`
         case "emphasis":
             return `<em>${node.value}</em>`
         case "strong":
@@ -21,6 +23,8 @@ function codeGenerator(node) {
             return `<strong><em>${node.value}</em></strong>`
         case "blockquote":
             return `<blockquote>${node.children.map(codeGenerator).join("")}</blockquote>`
+        case "thematicBreak":
+            return `<hr>`
         case "list":
             if(node.ordered){
                 return `<ol>${node.children.map(codeGenerator).join("")}</ol>`

@@ -1,5 +1,5 @@
 //对输入的markdown文本数组进行每一行的预处理
-// let test = ["```js","niaho","```","## nihao"]
+// let test = ["n", "", ""]
 function Pretreatment(preInput) {
     return preInput.map((row) => (row += "\n"));
 }
@@ -142,10 +142,16 @@ function tokenizer(input) {
                     char,
                 });
             }
-            if(char.match(/\s/)){
-                tokens.push({
-                    type: "NEXTROW",
-                });
+            if(char.match(/\n/)){
+                if(rowInput.length===1){
+                    tokens.push({
+                        type: "LINEFEED"
+                    })
+                }else{
+                    tokens.push({
+                        type: "NEXTROW",
+                    });
+                }
             }
             curr++;
         }
@@ -159,7 +165,6 @@ function deelChar(tokens) {
         startIndex = 0,
         value = "";
     while (tokens[curr]) {
-
         if (tokens[curr]["char"]) {
             count++;
             startIndex = value===""?curr:startIndex;

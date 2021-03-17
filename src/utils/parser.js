@@ -15,12 +15,17 @@ const paragraph = ["TEXT", "EMPHASIS", "STRONGEM", "STRONG"];
 function parser(tokens) {
     let curr = 0;
     function turn() {
-        
         let token = tokens[curr];
         if(token.type === "NEXTROW"){
             curr++;
             return {
                 type:'nextrow'
+            }
+        }
+        if(token.type === "LINEFEED"){
+            curr++;
+            return {
+                type:'linefeed'
             }
         }
         if (token.type === "HEADING") {
